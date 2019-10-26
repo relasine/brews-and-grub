@@ -26,7 +26,7 @@ class SearchSelect extends Component {
       });
     } else {
       const options = this.props.options.filter(option => {
-        return option.includes(this.state.entry);
+        return option.toLowerCase().includes(this.state.entry.toLowerCase());
       });
 
       if (options.length > 0) {
@@ -82,8 +82,14 @@ class SearchSelect extends Component {
 
   render() {
     return (
-      <div className="bag-search-select">
-        <p className="bag-search-select__current-selection">
+      <div
+        className="bag-search-select"
+        onClick={() => this.props.handleDeploy(this.props.name)}
+      >
+        <p
+          className="bag-search-select__current-selection"
+          onClick={() => this.props.handleDeploy(this.props.name)}
+        >
           {this.getCurrentSelection()}
         </p>
         <div className={this.getClass()}>
@@ -93,6 +99,7 @@ class SearchSelect extends Component {
             onChange={e => this.onEntry(e)}
             value={this.state.entry}
             placeholder="search"
+            onClick={e => e.stopPropagation()}
           ></input>
           <ul className="bag-search-select__options">{this.renderOptions()}</ul>
         </div>

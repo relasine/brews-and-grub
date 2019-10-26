@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.scss";
 import submissionFetch from "../../utils/async/submissionFetch";
+import getFoodAndBeer from "../../utils/async/getFoodAndBeer";
 
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
@@ -16,6 +17,14 @@ class App extends Component {
       status: "start"
     };
   }
+
+  componentDidMount() {
+    this.getFoodAndBeer();
+  }
+
+  getFoodAndBeer = async () => {
+    const data = await getFoodAndBeer();
+  };
 
   handleSubmission = async (beer, food, location) => {
     this.setLoading();

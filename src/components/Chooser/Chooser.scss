@@ -1,1 +1,28 @@
 @import "../../styles/global-styles.scss";
+.bag-chooser {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  align-items: center;
+
+  &__location-button-wrapper {
+    width: 316px;
+
+    display: flex;
+  }
+
+  .bag-button {
+    display: block;
+
+    &:first-child {
+      margin-right: 16px;
+    }
+  }
+
+  &__get-location-from-browser-wrapper,
+  &__choose-location-wrapper {
+    box-sizing: border-box;
+    width: 316px;
+    height: 36px;
+  }
+}

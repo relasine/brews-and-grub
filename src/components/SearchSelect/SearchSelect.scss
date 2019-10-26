@@ -5,24 +5,36 @@
   width: 250px;
   position: relative;
   background: $white;
+  margin: 16px;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   &__current-selection {
     border: solid 2px $light-grey;
     padding: 4px 0 4px 4px;
     margin: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__input {
     width: 250px;
     margin: 0;
     border: 0;
-    padding: 0;
+    padding: 0 0 0 6px;
     overflow: hidden;
-
+    height: 0;
     max-height: 0;
     position: fixed;
     font-size: 14px;
     transition: 0.2s;
+    top: 68px;
+    cursor: default;
+
     &:focus {
       outline: none;
     }
@@ -32,17 +44,18 @@
     overflow: hidden;
     max-height: 0;
     position: absolute;
-    top: 32px;
+    top: 40px;
     transition: 0.2s;
     &--is-deployed {
       max-height: 200px;
       overflow: scroll;
 
       .bag-search-select__input {
+        height: 28px;
         max-height: 28px;
         height: 28px;
         border: solid 2px $light-grey;
-        padding-left: 4px;
+        cursor: text;
       }
     }
   }

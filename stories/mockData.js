@@ -11,6 +11,6 @@ export const mockOptions = [
   "goat"
 ];
 
-export const mockBeerOptions = [];
+export const mockBeerOptions = ["IPA", "Ale", "Lager"];
 
-export const mockFoodOptions = [];
+export const mockFoodOptions = ["Italian", "Tex Mex", "Vegan"];

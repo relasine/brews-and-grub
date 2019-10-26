@@ -12,6 +12,10 @@
   border-radius: 25px;
   transition: 0.1s;
 
+  &--small {
+    width: 150px;
+  }
+
   &:hover {
     background: $mid-grey;
     cursor: pointer;

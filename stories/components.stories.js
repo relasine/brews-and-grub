@@ -22,13 +22,21 @@ export const searchselect = () => {
   );
 };
 
-export const button = () => {
+export const buttons = () => {
   return (
-    <Button
-      onClick={action("clicked")}
-      text="Button"
-      name="LOVE ME AND DESPAIR"
-    />
+    <>
+      <Button
+        onClick={action("clicked")}
+        text="Button"
+        name="LOVE ME AND DESPAIR"
+      />
+      <Button
+        onClick={action("clicked")}
+        text="Button"
+        name="LOVE ME AND DESPAIR"
+        size="small"
+      />
+    </>
   );
 };
 
@@ -36,8 +44,8 @@ export const chooser = () => {
   return (
     <Chooser
       handleSubmission={action("submission")}
-      mockBeerOptions={mockBeerOptions}
-      mockFoodOptions={mockFoodOptions}
+      beerOptions={mockBeerOptions}
+      foodOptions={mockFoodOptions}
     />
   );
 };
