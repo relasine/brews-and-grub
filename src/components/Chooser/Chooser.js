@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./Chooser.scss";
-import Dropdown from "../Dropdown/Dropdown";
+import SearchSelect from "../SearchSelect/SearchSelect";
 import PropTypes from "prop-types";
+import getCoordinates from "../../utils/async/getCoordinates";
 
 class Chooser extends Component {
   constructor() {
@@ -16,6 +17,21 @@ class Chooser extends Component {
     };
   }
 
+  componentDidMount() {
+    this.getLatAndLong();
+  }
+
+  getLatAndLong = () => {
+    let location;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      location = [position.coords.latitude, position.coords.longitude];
+    });
+
+    if (location) {
+      this.setState({ location });
+    }
+  };
+
   handleSelect = (name, selection) => {
     this.setState({ [name]: selection, deployed: null });
   };
@@ -28,22 +44,38 @@ class Chooser extends Component {
     }
   };
 
-  handleSubmit = () => {
+  handleSubmission = () => {
     const { foodSelection, beerSelection, location } = this.state;
     if (!foodSelection || !beerSelection || !location) {
       this.setState({ error: true });
       return;
     }
 
-    this.props.handleSubmit(foodSelection, beerSelection, location);
+    this.props.handleSubmission(foodSelection, beerSelection, location);
   };
 
   render() {
     const { beerOptions, foodOptions } = this.props;
     return (
       <main className="bag-chooser">
-        {beerOptions && <Dropdown options={beerOptions} name="beerSelection" />}
-        {foodOptions && <Dropdown options={foodOptions} name="foodSelection" />}
+        {beerOptions && (
+          <SearchSelect
+            options={beerOptions}
+            name="beerSelection"
+            isDeployed={this.state.deployed === "beerSelection" ? true : false}
+            defaultSelection="Choose your beer"
+            handleSelect={this.handleSelect}
+          />
+        )}
+        {foodOptions && (
+          <SearchSelect
+            options={foodOptions}
+            name="foodSelection"
+            isDeployed={this.state.deployed === "foodSelection" ? true : false}
+            defaultSelection="Choose your food"
+            handleSelect={this.handleSelect}
+          />
+        )}
       </main>
     );
   }
@@ -52,7 +84,7 @@ class Chooser extends Component {
 export default Chooser;
 
 Chooser.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
+  handleSubmission: PropTypes.func.isRequired,
   beerOptions: PropTypes.arrayOf(PropTypes.string),
   foodOptions: PropTypes.arrayOf(PropTypes.string)
 };

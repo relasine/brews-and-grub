@@ -3,7 +3,8 @@
 // COLORS
 $black: #333333;
 $white: #f2f2f2;
-$light-grey: #d3d3d3;
+$light-grey: #ededed;
+$mid-grey: #d3d3d3;
 $dark-grey: #a8a8a8;
 
 // TYPEFACE
@@ -12,3 +13,20 @@ $light-weight: 300;
 $normal-weight: 400;
 $bold-weight: 700;
 $very-bold-weight: 800;
+
+@mixin typeface {
+  color: $black;
+  font-family: $font;
+}
+
+li {
+  list-style: none;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}

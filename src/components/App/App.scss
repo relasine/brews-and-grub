@@ -1,1 +1,6 @@
 @import "../../styles/reset.scss";
+@import "../../styles/global-styles.scss";
+
+.App {
+  @include typeface;
+}

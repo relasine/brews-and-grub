@@ -1,0 +1,64 @@
+@import "../../styles/global-styles.scss";
+
+.bag-search-select {
+  @include typeface;
+  width: 250px;
+  position: relative;
+  background: $white;
+
+  &__current-selection {
+    border: solid 2px $light-grey;
+    padding: 4px 0 4px 4px;
+    margin: 0;
+  }
+
+  &__input {
+    width: 250px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+
+    max-height: 0;
+    position: fixed;
+    font-size: 14px;
+    transition: 0.2s;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__wrapper {
+    overflow: hidden;
+    max-height: 0;
+    position: absolute;
+    top: 32px;
+    transition: 0.2s;
+    &--is-deployed {
+      max-height: 200px;
+      overflow: scroll;
+
+      .bag-search-select__input {
+        max-height: 28px;
+        height: 28px;
+        border: solid 2px $light-grey;
+        padding-left: 4px;
+      }
+    }
+  }
+
+  &__options {
+    padding: 8px;
+    background: $light-grey;
+    width: 250px;
+    margin: 28px 0 0;
+    overflow: scroll;
+  }
+
+  &__option {
+    padding-top: 4px;
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+}
