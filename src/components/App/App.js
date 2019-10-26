@@ -15,7 +15,8 @@ class App extends Component {
 
     this.state = {
       data: null,
-      status: "start"
+      status: "start",
+      results: null
     };
   }
 
@@ -36,12 +37,12 @@ class App extends Component {
   };
 
   handleSubmission = async (beer, food, location) => {
-    console.log(beer, food, location);
     this.setLoading();
 
     try {
       const data = await submissionFetch(beer, food, location);
-      this.setSuccess(data);
+      console.log(data);
+      this.setResults(data);
     } catch (error) {
       this.setError();
       console.log(error);
@@ -54,6 +55,13 @@ class App extends Component {
 
   setError = () => {
     this.setState({ status: "error" });
+  };
+
+  setResults = data => {
+    this.setState({
+      results: data,
+      status: "results"
+    });
   };
 
   setSuccess = data => {
@@ -69,7 +77,7 @@ class App extends Component {
     const { status, data } = this.state;
     return (
       <div className="App">
-        {this.state.data && (
+        {this.state.data && this.state.status !== "results" && (
           <Chooser
             handleSubmission={this.handleSubmission}
             foodOptions={this.state.data.foodOptions}
@@ -79,12 +87,14 @@ class App extends Component {
 
         {status === "loading" && <Loading />}
         {status === "error" && <Error />}
-        {status === "results" && <Results data={data} />}
-        <img
-          src={logo}
-          alt="brews and grub logo"
-          className="bag-loading__logo"
-        />
+        {status === "results" && <Results data={this.state.results} />}
+        {status !== "results" && (
+          <img
+            src={logo}
+            alt="brews and grub logo"
+            className="bag-loading__logo"
+          />
+        )}
       </div>
     );
   }

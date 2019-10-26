@@ -1,0 +1,14 @@
+.bag-Results {
+  padding-top: 48px;
+
+  &__header {
+    text-align: center;
+    font-weight: 700;
+  }
+  &__cards {
+    display: flex;
+    justify-content: space-around;
+    max-width: 800px;
+    margin: auto;
+  }
+}

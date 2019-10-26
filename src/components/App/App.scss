@@ -3,10 +3,15 @@
 .App {
   padding-bottom: 120px;
 
-  &__logo {
+  &__loading-logo {
     position: absolute;
     bottom: 16px;
     left: 16px;
     width: 120px;
+    z-index: 0;
+  }
+
+  .ter-search-select__options-list {
+    z-index: 5;
   }
 }
