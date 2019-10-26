@@ -48,6 +48,7 @@ class App extends Component {
     const { status, data } = this.state;
     return (
       <div className="App">
+        BEERS AND GRUB
         <Chooser handleSubmission={this.handleSubmission} />
         {status === "loading" && <Loading />}
         {status === "error" && <Error />}
