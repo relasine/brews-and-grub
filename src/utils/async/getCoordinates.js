@@ -1,4 +1,4 @@
-import apiKey from "../keys/apiKey";
+const apiKey = "";
 
 export default async query => {
   const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${query}&countrycode=us`;

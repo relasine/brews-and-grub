@@ -33,14 +33,31 @@
     }
   }
 
+  &__beer-label {
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0;
+  }
+
   &__beers {
     font-size: 14px;
     margin: 0;
+    padding-left: 16px;
+    padding-bottom: 4px;
   }
 
   &__location {
     font-size: 14px;
     margin: 0;
+    text-align: center;
+  }
+
+  .top-loc {
+    margin-top: 8px;
+  }
+
+  .bottom-loc {
+    margin-bottom: 8px;
   }
 
   &__phone {
@@ -79,5 +96,6 @@
     position: absolute;
     bottom: 16px;
     width: 268px;
+    margin-bottom: 0;
   }
 }

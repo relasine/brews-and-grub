@@ -109,7 +109,7 @@ class Chooser extends Component {
               />
               <Button
                 size="small"
-                onClick={this.setLocationTypeManually}
+                onClick={() => {}}
                 text="Enter location"
                 className="ter-button--primary--1"
               />

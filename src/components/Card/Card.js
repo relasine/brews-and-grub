@@ -1,9 +1,8 @@
 import React from "react";
 import "./Card.scss";
 import { ButtonLink } from "terra-component-lib";
-const fpo = "";
 
-const Card = ({ card }) => {
+const Card = ({ card, beers }) => {
   const {
     image_url,
     name,
@@ -16,13 +15,12 @@ const Card = ({ card }) => {
     review_count,
     zip_code,
     state,
-    food_truck_type,
-    beers,
-    food
+    food_truck_type
   } = card;
 
   const backgroundImage = {
-    backgroundImage: `url(${image_url || fpo})`
+    backgroundImage: `url(${image_url ||
+      "https://fpoimg.com/300x200?text=No%20Image"})`
   };
 
   const renderBeers = () => {
@@ -30,13 +28,13 @@ const Card = ({ card }) => {
       if (beers.length > index + 1) {
         return (
           <span className="bag-card__beer" key={beer}>
-            {`${beer}, `}
+            {`${beer.name}, `}
           </span>
         );
       } else {
         return (
           <span className="bag-card__beer" key={beer}>
-            {`${beer}`}
+            {`${beer.name}`}
           </span>
         );
       }
@@ -53,10 +51,15 @@ const Card = ({ card }) => {
             <span>Truck type:</span> {food_truck_type}
           </p>
         )}
-        {beers && <p className="bag-card__beers">{renderBeers()}</p>}
-        {street && <p className="bag-card__location">{street}</p>}
+        {beers && (
+          <>
+            <p className="bag-card__beer-label">beers:</p>
+            <p className="bag-card__beers">{renderBeers()}</p>
+          </>
+        )}
+        {street && <p className="bag-card__location top-loc">{street}</p>}
         {city && state && zip_code && (
-          <p className="bag-card__location">
+          <p className="bag-card__location bottom-loc">
             {city}, {state} {zip_code}
           </p>
         )}

@@ -73,6 +73,13 @@ class App extends Component {
     }, 3000);
   };
 
+  searchAgain = () => {
+    this.setState({
+      results: null,
+      status: "success"
+    });
+  };
+
   render() {
     const { status, data } = this.state;
     return (
@@ -87,7 +94,9 @@ class App extends Component {
 
         {status === "loading" && <Loading />}
         {status === "error" && <Error />}
-        {status === "results" && <Results data={this.state.results} />}
+        {status === "results" && (
+          <Results data={this.state.results} searchAgain={this.searchAgain} />
+        )}
         {status !== "results" && (
           <img
             src={logo}
