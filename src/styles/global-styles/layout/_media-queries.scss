@@ -1,0 +1,35 @@
+/**
+
+    Media Queries
+
+    .my-box {
+        display: block;
+        @include for-size(desktop-up) {
+            padding: 20px;
+        }
+    }
+
+ */
+
+@mixin for-size($range) {
+
+    @if $range == phone-only {
+        @media (max-width: #{$breakpoint-xs - 1}) { @content; }
+    }
+    @else if $range == tablet-portrait-up {
+        @media (min-width: $breakpoint-xs) { @content; }
+    }
+    @else if $range == tablet-landscape-down {
+        @media (max-width: #{$breakpoint-sm - 1}) { @content; }
+    }
+    @else if $range == tablet-landscape-up {
+        @media (min-width: $breakpoint-sm) { @content; }
+    }
+    @else if $range == desktop-up {
+        @media (min-width: $breakpoint-md) { @content; }
+    }
+    @else if $range == big-desktop-up {
+        @media (min-width: $breakpoint-lg) { @content; }
+    }
+
+}

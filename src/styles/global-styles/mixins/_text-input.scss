@@ -1,0 +1,31 @@
+@mixin input-base() {
+  font-size: $input-font-size;
+  line-height: $input-height;
+  height: $input-height;
+  color: $input-text-color;
+  box-sizing: border-box;
+  padding: 0 spacing("xs");
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  border-width: $input-border-width;
+  border-style: solid;
+  border-color: $input-border-color;
+  background-color: $input-bg-color;
+  border-radius: $input-border-radius;
+  box-sizing: border-box;
+  &:hover,
+  &:focus {
+    border-color: $input-focus-border-color;
+  }
+  .has-error & {
+    border-color: color("danger");
+  }
+  .has-success & {
+    border-color: color("success");
+  }
+  .has-warning & {
+    border-color: color("warning");
+  }
+}

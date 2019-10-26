@@ -1,0 +1,15 @@
+/**
+ * Color
+ */
+
+@each $name, $hex in $color-palette {
+    .color-#{$name} {
+        color: $hex;
+    }
+}
+
+:root {
+    @each $name, $hex in $color-palette {
+        --color-#{$name}: #{$hex};
+    }
+}

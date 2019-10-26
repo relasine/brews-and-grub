@@ -1,0 +1,22 @@
+.ter-form-item {
+  padding: 0 0 spacing("sm") 0;
+  &__label {
+    font-size: $form-label-font-size;
+    color: $form-label-color;
+    padding-bottom: spacing("mini");
+    display: block;
+  }
+  &__status-message {
+    font-size: $form-status-message-font-size;
+    .has-error & {
+      color: color("danger");
+      margin: spacing("micro") 0 0 0;
+      padding: 0;
+    }
+    .has-success & {
+      color: color("success");
+      margin: spacing("micro") 0 0 0;
+      padding: 0;
+    }
+  }
+}

@@ -1,28 +1,79 @@
-@import "../../styles/global-styles.scss";
+@import "../../styles/global-styles/terra.scss";
+
 .bag-chooser {
-  display: flex;
-  justify-content: center;
+  margin: auto;
   max-width: 1200px;
+  width: 100%;
   align-items: center;
+  opacity: 1;
+  animation: fadein 0.5s linear;
 
   &__location-button-wrapper {
-    width: 316px;
-
     display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto 48px;
+    justify-content: space-around;
+    max-width: 500px;
   }
 
-  .bag-button {
-    display: block;
+  &__get-location-from-browser-wrapper,
+  &__choose-location-wrapper {
+    margin: 0 auto 88px;
+    position: relative;
+    box-sizing: border-box;
+    width: 316px;
+    height: 48px;
+  }
+
+  &__location-header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  &__loader {
+    width: 70px;
+    transform: translateY(16px);
+  }
+
+  &__getting-text {
+    margin: 0;
+    height: 36px;
+    line-height: 36px;
+    transform: translateY(-26px);
+  }
+
+  &__location-found {
+    text-align: center;
+    font-weight: 700;
+  }
+
+  &__dropdown-label {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  &__dropdowns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .ter-search-select {
+    width: 250px;
 
     &:first-child {
       margin-right: 16px;
     }
   }
+}
 
-  &__get-location-from-browser-wrapper,
-  &__choose-location-wrapper {
-    box-sizing: border-box;
-    width: 316px;
-    height: 36px;
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
   }
 }

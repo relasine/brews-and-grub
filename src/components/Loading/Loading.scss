@@ -1,0 +1,57 @@
+.bag-loading {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+  animation: fadeindelay 1s linear;
+
+  &__header {
+    padding-top: 48px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    height: auto;
+    opacity: 1;
+
+    @media screen and (max-width: 500px) {
+      font-size: 16px;
+    }
+  }
+
+  &__image {
+    display: block;
+
+    margin: 0 auto;
+
+    @media screen and (max-width: 500px) {
+      width: 225px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    width: 120px;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeindelay {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

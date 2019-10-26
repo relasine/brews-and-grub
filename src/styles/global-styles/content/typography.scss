@@ -1,0 +1,98 @@
+body,
+html {
+  @include type-setting('base');
+  font-family: $body-font-family;
+  color: $body-font-color;
+  background: $body-bg-color;
+  height: 100%;
+}
+
+body {
+  &.has-no-nav {
+    padding-top: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include header-type-setting;
+}
+
+@each $level, $value in $font-size-scale {
+  .font-size-#{$level} {
+      font-size: $value;
+  }
+}
+
+p {
+	@include paragraph-type-setting;
+}
+
+a,
+a:visited,
+a:active,
+a:focus,
+.link,
+.link:visited,
+.link:active,
+.link:focus {
+  font-weight: $link-font-weight;
+  color: $link-color;
+  transition: color 200ms ease;
+  text-decoration: underline;
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .is-inverse & {
+    color: $link-inverse-color;
+    &:hover {
+      color: $link-inverse-hover-color;
+    }
+  }
+}
+
+.is-inverse {
+  color: type-color('inverse');
+  *:not(a) {
+    color: type-color('inverse');
+  }
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  background-color: color('gray-2');
+  border: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+.hidden,
+[hidden],
+[aria-hidden="true"] {
+  display: none;
+  visibility: hidden;
+}
+
+pre {
+  margin: 0;
+}
+
+::selection {
+  background: $selection-highlight-bg;
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+.text-lowercase {
+	text-transform: lowercase;
+}

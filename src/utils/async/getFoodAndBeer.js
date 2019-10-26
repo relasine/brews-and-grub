@@ -1,9 +1,6 @@
-import { mockFood, mockBeer } from "../mocks/mockFoodAndBeer";
-
 export default async () => {
-  const foodOptions = Promise.resolve(mockFood);
-  const beerOptions = Promise.resolve(mockBeer);
-  await beerFetch();
+  const foodOptions = await foodFetch();
+  const beerOptions = await beerFetch();
   return { foodOptions, beerOptions };
 };
 
@@ -11,6 +8,12 @@ const beerFetch = async () => {
   const url = "https://brews-and-grub-api.herokuapp.com/beer_types";
 
   const response = await fetch(url);
-  const data = await response.json();
-  console.log(data);
+  return await response.json();
+};
+
+const foodFetch = async () => {
+  const url = "https://brews-and-grub-api.herokuapp.com/food_truck_types";
+
+  const response = await fetch(url);
+  return await response.json();
 };

@@ -1,6 +1,12 @@
-@import "../../styles/reset.scss";
-@import "../../styles/global-styles.scss";
+@import "terra-component-lib/dist/global-styles/global-terra.scss";
 
 .App {
-  @include typeface;
+  padding-bottom: 120px;
+
+  &__logo {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    width: 120px;
+  }
 }

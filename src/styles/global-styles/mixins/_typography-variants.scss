@@ -1,0 +1,35 @@
+@mixin typography-variants() {
+  // -- ALIGNMENT -- //
+  &--align-center {
+    text-align: center;
+  }
+
+  &--align-start {
+    text-align: start;
+  }
+
+  &--align-end {
+    text-align: end;
+  }
+
+  // -- FONT SIZE -- //
+  @each $key, $value in $font-size-scale {
+    &--size-#{$key} {
+      font-size: $value;
+    }
+  }
+
+  // -- FONT WEIGHT -- //
+  @each $key, $value in $font-weight-scale {
+    &--weight-#{$key} {
+      font-weight: $value;
+    }
+  }
+
+  // -- COLOR -- //
+  @each $key, $value in $color-palette {
+    &--color-#{$key} {
+      color: $value;
+    }
+  }
+}

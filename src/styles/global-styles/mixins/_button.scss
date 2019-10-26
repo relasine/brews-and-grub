@@ -1,0 +1,208 @@
+/*
+ * Terra Design System: v.1.0.0
+ * Component: _button.scss
+ */
+
+
+@mixin button-reset() {
+    border: 0;
+    background: transparent;
+    &:active,
+    &:focus {
+    	outline: none;
+    }
+}
+
+@mixin button-base() {
+    font-size: $button-font-size;
+    font-weight: $button-font-weight;
+    padding: 0 spacing('sm');
+    height: $button-height;
+    line-height: calc(#{$button-height} - (#{$button-border-size * 2}));
+    border-radius: $button-border-radius;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out;
+    text-align: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    &[href] {
+        &:hover,
+        &:visited,
+        &:active,
+        &:focus,
+        a:active {
+            cursor: pointer;
+            text-decoration: none;
+        }
+        &:active {
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
+        }
+    }
+    .ter-button__icon {
+        margin-left: spacing('xxs');
+    }
+}
+
+@mixin button-primary($bg, $color: $bg, $borderColor: $bg, $bgHover: $bg) {
+    background-color: $bg;
+    border: $button-border-size solid $borderColor;
+    @if $bg == $color {
+        color: yiq-contrast-color($bg);
+    }
+    @else {
+        color: $color;
+    }
+    &:visited,
+    &:active,
+    &:focus {
+        @if $bg == $color {
+            color: yiq-contrast-color($bg);
+        }
+        @else {
+            color: $color;
+        }
+    }
+    &:hover {
+        @if $bg == $color {
+            color: yiq-contrast-color($bg);
+        }
+        @else {
+            color: $color;
+        }
+        text-decoration: none;
+        @if $bg == $bgHover {
+            background-color: darken($bg, 7%);
+        }
+        @else {
+            background-color: $bgHover;
+        }
+        border-color: darken($borderColor, 7%);
+        cursor: pointer;
+    }
+    &:active {
+        background-color: darken($bg, 12%);
+    }
+    svg {
+        width: 16px;
+        height: 16px;
+        @if $bg == $color {
+            fill: yiq-contrast-color($bg);
+        }
+        @else {
+            fill: $color;
+        }
+    }
+}
+
+@mixin button-secondary($bg, $color: $bg, $borderColor: $bg, $bgHover: $bg) {
+    background-color: transparent;
+    border: $button-border-size solid $borderColor;
+    color: $color;
+    &:hover {
+        @if $bg == $color {
+            color: yiq-contrast-color($bg);
+        }
+        @else {
+            color: $color;
+        }
+        text-decoration: none;
+        @if $bg == $bgHover {
+            background-color: darken($bg, 7%);
+        }
+        @else {
+            background-color: $bgHover;
+        }
+        border-color: darken($borderColor, 7%);
+        cursor: pointer;
+        svg {
+            @if $bg == $color {
+                fill: yiq-contrast-color($bg);
+            }
+            @else {
+                fill: $color;
+            }
+        }
+    }
+    &:active {
+        background-color: darken($bg, 12%);
+    }
+    svg {
+        width: 16px;
+        height: 16px;
+        fill: $color;
+    }
+}
+
+// reset all buttons
+button {
+    @include button-reset();
+}
+
+// button base styles
+.ter-button,
+a.ter-button {
+    @include button-base();
+}
+
+// primary button definitions
+@each $color, $value in $button-colors {
+  .ter-button--primary--#{$color},
+  a.ter-button--primary--#{$color} {
+    @include button-primary($value);
+  }
+}
+
+// secondary button definitions
+@each $color, $value in $button-colors {
+  .ter-button--secondary--#{$color},
+  a.ter-button--secondary--#{$color} {
+    @include button-secondary($value);
+  }
+}
+
+// small button variant
+.ter-button--small,
+a.ter-button--small {
+    height: $button-small-height;
+    line-height: calc(#{$button-small-height} - (#{$button-border-size * 2}));
+}
+
+// block button variant
+.ter-button--block,
+a.ter-button--block {
+    display: block;
+    width: 100%;
+}
+
+// split button
+.ter-split-button {
+    position: relative;
+    button {
+        float: left;
+        margin-right: 1px;
+        &:first-of-type {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        &:last-of-type {
+            margin-right: 0px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+        &:only-of-type {
+            margin-right: 0px;
+            border-radius: initial;
+        }
+    }
+    .dropdown {
+        position: unset;
+    }
+    .ter-button__icon {
+        margin-left: 0px;
+    }
+}

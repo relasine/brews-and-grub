@@ -1,0 +1,27 @@
+// header type setting
+@mixin header-type-setting() {
+	font-size: 1em;
+	font-family: $header-font-family;
+	line-height: line-height('tight');
+	font-weight: $header-font-weight;
+	color: $header-font-color;
+	display: block;
+	margin: 0 0 .67em 0;
+}
+
+// general type setting
+@mixin type-setting($font-size: 'base', $line-height: 'regular') {
+	font-size: font-size($font-size);
+	line-height: line-height($line-height);
+}
+
+// paragraph type setting
+@mixin paragraph-type-setting {
+	@include type-setting('base', 'loose');
+	margin: 0 0 1.5em 0;
+}
+
+// sets font-size
+@mixin font-size($size) {
+	@include type-setting($size);
+}

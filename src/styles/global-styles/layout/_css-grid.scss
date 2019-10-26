@@ -1,0 +1,24 @@
+$grid-container-max-width: 1200px;
+$grid-container-margin-width: spacing("md");
+$grid-gutter-width: spacing("md");
+
+@mixin grid-container {
+  max-width: 64rem;
+  margin: 0 auto;
+  display: block;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: $grid-gutter-width;
+  padding-left: $grid-container-margin-width;
+  padding-right: $grid-container-margin-width;
+  @media screen and (min-width: $breakpoint-xs) {
+    display: grid;
+  }
+}
+
+@mixin grid-column($column-width) {
+  grid-column: span $column-width;
+}
+
+@mixin grid-row($row-height) {
+  grid-row: span $row-height;
+}

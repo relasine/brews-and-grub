@@ -1,0 +1,9 @@
+/**
+ * Box Shadow
+ */
+
+@each $level, $value in $box-shadows {
+    .box-shadow-#{$level} {
+        box-shadow: $value;
+    }
+}

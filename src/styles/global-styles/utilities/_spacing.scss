@@ -1,0 +1,219 @@
+/**
+ * Spacing
+ */
+
+:root {
+    @each $size, $value in $spacing-scale {
+        --spacing-#{$size}: #{$value};
+    }
+}
+
+@each $size, $value in $spacing-scale {
+	// padding
+    .pad-#{$size} {
+        padding: $value !important;
+    }
+    .pad-h-#{$size} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+    }
+    .pad-v-#{$size} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+    }
+    .pad-top-#{$size} {
+        padding-top: $value !important;
+    }
+    .pad-right-#{$size} {
+        padding-right: $value !important;
+    }
+    .pad-bottom-#{$size} {
+        padding-bottom: $value !important;
+    }
+    .pad-left-#{$size} {
+        padding-left: $value !important;
+    }
+    // margin
+    .margin-#{$size} {
+        margin: $value !important;
+    }
+    .margin-h-#{$size} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+    }
+    .margin-v-#{$size} {
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+    }
+    .margin-top-#{$size} {
+        margin-top: $value !important;
+    }
+    .margin-right-#{$size} {
+        margin-right: $value !important;
+    }
+    .margin-bottom-#{$size} {
+        margin-bottom: $value !important;
+    }
+    .margin-left-#{$size} {
+        margin-left: $value !important;
+    }
+}
+
+@media only screen and (min-width: $breakpoint-xs) {
+    @each $size, $value in $spacing-scale {
+        // padding
+        .pad-#{$size}-sm {
+            padding: $value !important;
+        }
+        .pad-h-#{$size}-sm {
+            padding-left: $value !important;
+            padding-right: $value !important;
+        }
+        .pad-v-#{$size}-sm {
+            padding-top: $value !important;
+            padding-bottom: $value !important;
+        }
+        .pad-top-#{$size}-sm {
+            padding-top: $value !important;
+        }
+        .pad-right-#{$size}-sm {
+            padding-right: $value !important;
+        }
+        .pad-bottom-#{$size}-sm {
+            padding-bottom: $value !important;
+        }
+        .pad-left-#{$size}-sm {
+            padding-left: $value !important;
+        }
+        // margin
+        .margin-#{$size}-sm {
+            margin: $value !important;
+        }
+        .margin-h-#{$size}-sm {
+            margin-left: $value !important;
+            margin-right: $value !important;
+        }
+        .margin-v-#{$size}-sm {
+            margin-top: $value !important;
+            margin-bottom: $value !important;
+        }
+        .margin-top-#{$size}-sm {
+            margin-top: $value !important;
+        }
+        .margin-right-#{$size}-sm {
+            margin-right: $value !important;
+        }
+        .margin-bottom-#{$size}-sm {
+            margin-bottom: $value !important;
+        }
+        .margin-left-#{$size}-sm {
+            margin-left: $value !important;
+        }
+    }
+}
+
+@media only screen and (min-width: $breakpoint-sm) {
+    @each $size, $value in $spacing-scale {
+        // padding
+        .pad-#{$size}-md {
+            padding: $value !important;
+        }
+        .pad-h-#{$size}-md {
+            padding-left: $value !important;
+            padding-right: $value !important;
+        }
+        .pad-v-#{$size}-md {
+            padding-top: $value !important;
+            padding-bottom: $value !important;
+        }
+        .pad-top-#{$size}-md {
+            padding-top: $value !important;
+        }
+        .pad-right-#{$size}-md {
+            padding-right: $value !important;
+        }
+        .pad-bottom-#{$size}-md {
+            padding-bottom: $value !important;
+        }
+        .pad-left-#{$size}-md {
+            padding-left: $value !important;
+        }
+        // margin
+        .margin-#{$size}-md {
+            margin: $value !important;
+        }
+        .margin-h-#{$size}-md {
+            margin-left: $value !important;
+            margin-right: $value !important;
+        }
+        .margin-v-#{$size}-md {
+            margin-top: $value !important;
+            margin-bottom: $value !important;
+        }
+        .margin-top-#{$size}-md {
+            margin-top: $value !important;
+        }
+        .margin-right-#{$size}-md {
+            margin-right: $value !important;
+        }
+        .margin-bottom-#{$size}-md {
+            margin-bottom: $value !important;
+        }
+        .margin-left-#{$size}-md {
+            margin-left: $value !important;
+        }
+    }
+}
+
+@media only screen and (min-width: $breakpoint-md) {
+    @each $size, $value in $spacing-scale {
+        // padding
+        .pad-#{$size}-lg {
+            padding: $value !important;
+        }
+        .pad-h-#{$size}-lg {
+            padding-left: $value !important;
+            padding-right: $value !important;
+        }
+        .pad-v-#{$size}-lg {
+            padding-top: $value !important;
+            padding-bottom: $value !important;
+        }
+        .pad-top-#{$size}-lg {
+            padding-top: $value !important;
+        }
+        .pad-right-#{$size}-lg {
+            padding-right: $value !important;
+        }
+        .pad-bottom-#{$size}-lg {
+            padding-bottom: $value !important;
+        }
+        .pad-left-#{$size}-lg {
+            padding-left: $value !important;
+        }
+        // margin
+        .margin-#{$size}-lg {
+            margin: $value !important;
+        }
+        .margin-h-#{$size}-lg {
+            margin-left: $value !important;
+            margin-right: $value !important;
+        }
+        .margin-v-#{$size}-lg {
+            margin-top: $value !important;
+            margin-bottom: $value !important;
+        }
+        .margin-top-#{$size}-lg {
+            margin-top: $value !important;
+        }
+        .margin-right-#{$size}-lg {
+            margin-right: $value !important;
+        }
+        .margin-bottom-#{$size}-lg {
+            margin-bottom: $value !important;
+        }
+        .margin-left-#{$size}-lg {
+            margin-left: $value !important;
+        }
+    }
+}

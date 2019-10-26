@@ -1,0 +1,361 @@
+@mixin icon-base() {
+    display: inline-block;
+    background-image: url('/ter-icons.svg');
+    background-repeat: no-repeat;
+}
+
+.ter-icon {
+    @include icon-base();
+}
+
+.ter-icon.ter-icon--open-caret-right-dark-48px {
+    background-position: -0px -0px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-down-dark-48px {
+    background-position: -50px -0px;
+}
+
+.ter-icon.ter-icon--refresh-dark-24px {
+    background-position: -100px -0px;
+}
+
+.ter-icon.ter-icon--refresh-dark-48px {
+    background-position: -150px -0px;
+}
+
+.ter-icon.ter-icon--refresh-dark-32px {
+    background-position: -200px -0px;
+}
+
+.ter-icon.ter-icon--open-caret-left-dark-32px {
+    background-position: -250px -0px;
+}
+
+.ter-icon.ter-icon--refresh-dark-16px {
+    background-position: -300px -0px;
+}
+
+.ter-icon.ter-icon--open-x-dark-48px {
+    background-position: -350px -0px;
+}
+
+.ter-icon.ter-icon--open-x-dark-32px {
+    background-position: -0px -50px;
+}
+
+.ter-icon.ter-icon--open-x-dark-24px {
+    background-position: -50px -50px;
+}
+
+.ter-icon.ter-icon--ico-open-x-dark-16px {
+    background-position: -100px -50px;
+}
+
+.ter-icon.ter-icon--open-check-dark-48px {
+    background-position: -150px -50px;
+}
+
+.ter-icon.ter-icon--open-check-dark-32px {
+    background-position: -200px -50px;
+}
+
+.ter-icon.ter-icon--open-check-dark-24px {
+    background-position: -250px -50px;
+}
+
+.ter-icon.ter-icon--open-check-dark-16px {
+    background-position: -300px -50px;
+}
+
+.ter-icon.ter-icon--open-caret-up-dark-48px {
+    background-position: -350px -50px;
+}
+
+.ter-icon.ter-icon--open-caret-up-dark-32px {
+    background-position: -0px -100px;
+}
+
+.ter-icon.ter-icon--open-caret-up-dark-24px {
+    background-position: -50px -100px;
+}
+
+.ter-icon.ter-icon--open-caret-up-dark-16px {
+    background-position: -100px -100px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-down-dark-48px {
+    background-position: -150px -100px;
+}
+
+.ter-icon.ter-icon--open-caret-right-dark-32px {
+    background-position: -200px -100px;
+}
+
+.ter-icon.ter-icon--open-caret-right-dark-24px {
+    background-position: -250px -100px;
+}
+
+.ter-icon.ter-icon--open-caret-right-dark-16px {
+    background-position: -300px -100px;
+}
+
+.ter-icon.ter-icon--open-caret-left-dark-48px {
+    background-position: -350px -100px;
+}
+
+.ter-icon.ter-icon--open-arrow-right-dark-32px {
+    background-position: -0px -150px;
+}
+
+.ter-icon.ter-icon--open-caret-left-dark-24px {
+    background-position: -50px -150px;
+}
+
+.ter-icon.ter-icon--open-caret-left-dark-16px {
+    background-position: -100px -150px;
+}
+
+.ter-icon.ter-icon--open-caret-down-dark-48px {
+    background-position: -150px -150px;
+}
+
+.ter-icon.ter-icon--open-caret-down-dark-32px {
+    background-position: -200px -150px;
+}
+
+.ter-icon.ter-icon--open-caret-down-dark-24px {
+    background-position: -250px -150px;
+}
+
+.ter-icon.ter-icon--open-caret-down-dark-16px {
+    background-position: -300px -150px;
+}
+
+.ter-icon.ter-icon--open-arrow-up-dark-48px {
+    background-position: -350px -150px;
+}
+
+.ter-icon.ter-icon--open-arrow-up-dark-32px {
+    background-position: -0px -200px;
+}
+
+.ter-icon.ter-icon--open-arrow-up-dark-24px {
+    background-position: -50px -200px;
+}
+
+.ter-icon.ter-icon--open-arrow-up-dark-16px {
+    background-position: -100px -200px;
+}
+
+.ter-icon.ter-icon--open-arrow-right-dark-48px {
+    background-position: -150px -200px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-left-dark-16px {
+    background-position: -200px -200px;
+}
+
+.ter-icon.ter-icon--open-arrow-right-dark-24px {
+    background-position: -250px -200px;
+}
+
+.ter-icon.ter-icon--open-arrow-right-dark-16px {
+    background-position: -300px -200px;
+}
+
+.ter-icon.ter-icon--open-arrow-left-dark-48px {
+    background-position: -350px -200px;
+}
+
+.ter-icon.ter-icon--open-arrow-left-dark-32px {
+    background-position: -0px -250px;
+}
+
+.ter-icon.ter-icon--open-arrow-left-dark-24px {
+    background-position: -50px -250px;
+}
+
+.ter-icon.ter-icon--open-arrow-left-dark-16px {
+    background-position: -100px -250px;
+}
+
+.ter-icon.ter-icon--open-arrow-down-dark-48px {
+    background-position: -150px -250px;
+}
+
+.ter-icon.ter-icon--open-arrow-down-dark-32px {
+    background-position: -200px -250px;
+}
+
+.ter-icon.ter-icon--open-arrow-down-dark-24px {
+    background-position: -250px -250px;
+}
+
+.ter-icon.ter-icon--open-arrow-down-dark-16px {
+    background-position: -300px -250px;
+}
+
+.ter-icon.ter-icon--info-dark-48px {
+    background-position: -350px -250px;
+}
+
+.ter-icon.ter-icon--info-dark-32px {
+    background-position: -0px -300px;
+}
+
+.ter-icon.ter-icon--info-dark-24px {
+    background-position: -50px -300px;
+}
+
+.ter-icon.ter-icon--info-dark-16px {
+    background-position: -100px -300px;
+}
+
+.ter-icon.ter-icon--enclosed-x-dark-48px {
+    background-position: -150px -300px;
+}
+
+.ter-icon.ter-icon--enclosed-x-dark-32px {
+    background-position: -200px -300px;
+}
+
+.ter-icon.ter-icon--enclosed-x-dark-24px {
+    background-position: -250px -300px;
+}
+
+.ter-icon.ter-icon--enclosed-x-dark-16px {
+    background-position: -300px -300px;
+}
+
+.ter-icon.ter-icon--enclosed-check-dark-48px {
+    background-position: -350px -300px;
+}
+
+.ter-icon.ter-icon--enclosed-check-dark-32px {
+    background-position: -0px -350px;
+}
+
+.ter-icon.ter-icon--enclosed-check-dark-24px {
+    background-position: -50px -350px;
+}
+
+.ter-icon.ter-icon--enclosed-check-dark-16px {
+    background-position: -100px -350px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-up-dark-48px {
+    background-position: -150px -350px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-up-dark-32px {
+    background-position: -200px -350px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-up-dark-24px {
+    background-position: -250px -350px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-up-dark-16px {
+    background-position: -300px -350px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-right-dark-48px {
+    background-position: -350px -350px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-right-dark-32px {
+    background-position: -0px -400px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-right-dark-24px {
+    background-position: -50px -400px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-right-dark-16px {
+    background-position: -100px -400px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-left-dark-48px {
+    background-position: -150px -400px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-left-dark-32px {
+    background-position: -200px -400px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-left-dark-24px {
+    background-position: -250px -400px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-down-dark-24px {
+    background-position: -300px -400px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-up-dark-48px {
+    background-position: -350px -400px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-down-dark-32px {
+    background-position: -0px -450px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-down-dark-24px {
+    background-position: -50px -450px;
+}
+
+.ter-icon.ter-icon--enclosed-caret-down-dark-16px {
+    background-position: -100px -450px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-right-dark-16px {
+    background-position: -150px -450px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-up-dark-32px {
+    background-position: -200px -450px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-up-dark-24px {
+    background-position: -250px -450px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-up-dark-16px {
+    background-position: -300px -450px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-right-dark-48px {
+    background-position: -350px -450px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-right-dark-32px {
+    background-position: -0px -500px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-right-dark-24px {
+    background-position: -50px -500px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-left-dark-16px {
+    background-position: -100px -500px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-left-dark-48px {
+    background-position: -150px -500px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-left-dark-32px {
+    background-position: -200px -500px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-left-dark-24px {
+    background-position: -250px -500px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-down-dark-32px {
+    background-position: -300px -500px;
+}
+
+.ter-icon.ter-icon--enclosed-arrow-down-dark-16px {
+    background-position: -350px -500px;
+} 

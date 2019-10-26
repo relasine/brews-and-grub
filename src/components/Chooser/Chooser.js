@@ -1,9 +1,12 @@
 import React, { Component, useState } from "react";
+import Hero from "../Hero/Hero";
 import "./Chooser.scss";
-import SearchSelect from "../SearchSelect/SearchSelect";
+// import SearchSelect from "../SearchSelect/SearchSelect";
+import { SearchSelect, Button } from "terra-component-lib";
 import PropTypes from "prop-types";
 import getCoordinates from "../../utils/async/getCoordinates";
-import Button from "../Button/Button";
+// import Button from "../Button/Button";
+import LoadingBeerSmall from "../../images/loading-beer.gif";
 class Chooser extends Component {
   constructor() {
     super();
@@ -18,6 +21,22 @@ class Chooser extends Component {
       status: "normal"
     };
   }
+
+  componentDidMount() {
+    window.addEventListener("click", this.handleClick);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("click", this.handleClick);
+  }
+
+  handleClick = e => {
+    if (e.target.classList.contains("bag-search-select__current-selection")) {
+      return;
+    } else {
+      this.setState({ deployed: null });
+    }
+  };
 
   getLatAndLong = () => {
     this.setGetting();
@@ -38,14 +57,18 @@ class Chooser extends Component {
     this.setState({ status: "getting" });
   };
 
-  setLocationType = locationType => {
-    this.setState({ locationType });
-    if (locationType === "lat-long") {
-      this.getLatAndLong();
-    }
+  setLocationTypeLatLong = () => {
+    this.setState({ locationType: "lat-long" });
+    this.getLatAndLong();
   };
 
-  handleSelect = (name, selection) => {
+  setLocationTypeManually = () => {
+    this.setState({
+      locationType: "choose"
+    });
+  };
+
+  handleSelect = (selection, name) => {
     this.setState({ [name]: selection, deployed: null });
   };
 
@@ -64,34 +87,54 @@ class Chooser extends Component {
       return;
     }
 
-    this.props.handleSubmission(foodSelection, beerSelection, location);
+    this.props.handleSubmission(beerSelection, foodSelection, location);
   };
 
   render() {
     const { beerOptions, foodOptions } = this.props;
     return (
       <main className="bag-chooser">
+        <Hero />
         {!this.state.locationType && (
-          <div className="bag-chooser__location-button-wrapper">
-            <Button
-              size="small"
-              onClick={this.setLocationType}
-              name="lat-long"
-              text="Current location"
-            />
-            <Button
-              size="small"
-              onClick={this.setLocationType}
-              name="choose"
-              text="Enter location"
-            />
-          </div>
+          <>
+            <h4 className="bag-chooser__location-header">
+              Choose location preference:
+            </h4>
+            <div className="bag-chooser__location-button-wrapper">
+              <Button
+                size="small"
+                onClick={this.setLocationTypeLatLong}
+                text="Use Current location"
+                className="ter-button--primary--1"
+              />
+              <Button
+                size="small"
+                onClick={this.setLocationTypeManually}
+                text="Enter location"
+                className="ter-button--primary--1"
+              />
+            </div>
+          </>
         )}
         {this.state.locationType === "lat-long" && (
           <div className="bag-chooser__get-location-from-browser-wrapper">
-            {this.state.status === "getting" && <p>Getting dem 'nates</p>}
+            {this.state.status === "getting" && (
+              <>
+                <p className="bag-chooser__getting-text">
+                  {" "}
+                  <img
+                    className="bag-chooser__loader"
+                    src={LoadingBeerSmall}
+                    alt="animated beer gass"
+                  />
+                  Getting your location...
+                </p>
+              </>
+            )}
             {this.state.status !== "getting" && this.state.location && (
-              <p>got it</p>
+              <p className="bag-chooser__location-found">
+                Location found and set
+              </p>
             )}
             {this.state.status === "error" && <p>error</p>}
           </div>
@@ -99,27 +142,41 @@ class Chooser extends Component {
         {this.state.locationType === "choose" && (
           <div className="bag-chooser__choose-location-wrapper"></div>
         )}
-        {beerOptions && (
-          <SearchSelect
-            options={beerOptions}
-            name="beerSelection"
-            defaultText="Choose your beer"
-            handleSelect={this.handleSelect}
-            isDeployed={this.state.deployed === "beerSelection" ? true : false}
-            currentSelection={this.state.beerSelection}
-            handleDeploy={this.handleDeploy}
-          />
-        )}
-        {foodOptions && (
-          <SearchSelect
-            options={foodOptions}
-            name="foodSelection"
-            isDeployed={this.state.deployed === "foodSelection" ? true : false}
-            defaultText="Choose your food"
-            handleSelect={this.handleSelect}
-            currentSelection={this.state.foodSelection}
-            handleDeploy={this.handleDeploy}
-          />
+        {beerOptions && foodOptions && (
+          <>
+            <h4 className="bag-chooser__dropdown-label">
+              Select your beer and food preference:
+            </h4>
+            <div className="bag-chooser__dropdowns">
+              <SearchSelect
+                options={beerOptions}
+                name="beerSelection"
+                defaultText="Choose your beer"
+                handleSelect={this.handleSelect}
+                isDeployed={
+                  this.state.deployed === "beerSelection" ? true : false
+                }
+                selection={this.state.beerSelection}
+                handleDeploy={this.handleDeploy}
+              />
+              <SearchSelect
+                options={foodOptions}
+                name="foodSelection"
+                isDeployed={
+                  this.state.deployed === "foodSelection" ? true : false
+                }
+                defaultText="Choose your food"
+                handleSelect={this.handleSelect}
+                selection={this.state.foodSelection}
+                handleDeploy={this.handleDeploy}
+              />
+              <Button
+                text="Submit"
+                onClick={this.handleSubmission}
+                className="ter-button--primary--2"
+              />
+            </div>
+          </>
         )}
       </main>
     );

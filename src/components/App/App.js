@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.scss";
 import submissionFetch from "../../utils/async/submissionFetch";
 import getFoodAndBeer from "../../utils/async/getFoodAndBeer";
+import logo from "../../images/logo.png";
 
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
@@ -23,10 +24,19 @@ class App extends Component {
   }
 
   getFoodAndBeer = async () => {
-    const data = await getFoodAndBeer();
+    this.setLoading();
+
+    try {
+      const data = await getFoodAndBeer();
+      this.setSuccess(data);
+    } catch (error) {
+      console.log(error);
+      this.setError();
+    }
   };
 
   handleSubmission = async (beer, food, location) => {
+    console.log(beer, food, location);
     this.setLoading();
 
     try {
@@ -47,21 +57,34 @@ class App extends Component {
   };
 
   setSuccess = data => {
-    this.setState({
-      data,
-      status: "success"
-    });
+    window.setTimeout(() => {
+      this.setState({
+        data,
+        status: "success"
+      });
+    }, 3000);
   };
 
   render() {
     const { status, data } = this.state;
     return (
       <div className="App">
-        <p>Beers and Grub</p>
-        <Chooser handleSubmission={this.handleSubmission} />
+        {this.state.data && (
+          <Chooser
+            handleSubmission={this.handleSubmission}
+            foodOptions={this.state.data.foodOptions}
+            beerOptions={this.state.data.beerOptions}
+          />
+        )}
+
         {status === "loading" && <Loading />}
         {status === "error" && <Error />}
         {status === "results" && <Results data={data} />}
+        <img
+          src={logo}
+          alt="brews and grub logo"
+          className="bag-loading__logo"
+        />
       </div>
     );
   }
