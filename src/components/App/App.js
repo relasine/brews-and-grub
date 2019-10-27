@@ -97,13 +97,6 @@ class App extends Component {
         {status === "results" && (
           <Results data={this.state.results} searchAgain={this.searchAgain} />
         )}
-        {status !== "results" && (
-          <img
-            src={logo}
-            alt="brews and grub logo"
-            className="bag-loading__logo"
-          />
-        )}
       </div>
     );
   }
