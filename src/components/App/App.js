@@ -70,7 +70,7 @@ class App extends Component {
         data,
         status: "success"
       });
-    }, 3000);
+    }, 6000);
   };
 
   searchAgain = () => {
